@@ -19,7 +19,7 @@ startButton.addEventListener("click", function () {
 // MORE VARIABLES DECLARED
 var timeLeft = 35;
 var timer = document.getElementById("timer");
-//var timerId = setInterval(countDown, 1000);
+var timerId;
 var questionIndex=0;
 // DISPLAY TIMER FUNCTION
 
@@ -27,6 +27,25 @@ var questionIndex=0;
 // ****OBJECTIVE: KEEP TIMER FROM RUNNING WITHOUT PRESSING START
 
 // ***** ORIGINAL TIMER FUNCTION********
+function startTime(){
+  timerId = setInterval(countDown, 1000);
+
+}
+
+function stopTime(){
+  clearInterval(timerId);
+
+}
+
+function resetTime(){
+  timeLeft=35;
+
+}
+
+function reduceTime(){
+  timeLeft= timeLeft-15;
+
+}
 function countDown() {
   if (timeLeft === 0) {
     clearTimeout(timerId);
@@ -40,8 +59,30 @@ function countDown() {
   }
 
 }
+
+function choicesClicked(){
+  stopTime();
+  console.log("stop time")
+  console.log(timeLeft);
+  console.log(this.textContent)
+
+  if(this.value== Game.answer[questionIndex]){
+    console.log("good job!")
+  }
+  else{
+    //decrement time
+    reduceTime();
+    console.log("YOU ARE WRONG you lose 15s");
+  }
+
+  questionIndex++;
+  renderQuestion();
+}
+
 //function to render the question
 function renderQuestion(){
+  console.log("starting time")
+  startTime();
   document.querySelector("#quiz-screen").setAttribute("class","");
  // countDown();
   //display the current q, choices, answers
@@ -67,6 +108,8 @@ function renderQuestion(){
   // choice4.textContent = Game.choices[0][3];
   // document.querySelector("#choices").appendChild(choice4);
 
+  document.querySelector("#choices").textContent="";
+
   for(var i=0;i<Game.choices[questionIndex].length;i++){
     var choice1 = document.createElement("button");
   //<button></button>
@@ -76,13 +119,14 @@ function renderQuestion(){
   //<button user-choice="Javascript">JavaScript</button>
   choice1.setAttribute("class", "buttonStyle");
   //<button user-choice="Javascript" class="buttonStyle">JavaScript</button>
+  choice1.setAttribute("onclick", "choicesClicked()");
   document.querySelector("#choices").appendChild(choice1);
 
   
 
   }
 
-//document.querySelector(".buttonStyle").onclick= choicesClicked();
+
   console.log(Game.choices[0][0]);
   console.log(Game.choices[0][1]);
   console.log(Game.choices[0][2]);
@@ -90,9 +134,20 @@ function renderQuestion(){
   document.querySelector("#answer").textContent=Game.answer[questionIndex];
   console.log(Game.answer[0]);
 
-  //  function choicesClicked(){
-  //    alert("clicked");
-  //  }
+  //function when user onclicks (.buttonStyle) a choice to call choicesClicked();
+
+
+
+
+//stop the time
+//evaluate if ans wrong or right
+//if wrong, decrement time
+//if right display correct
+
+//update questionIndex++
+//go to the next card
+//call renderQuestion
+   
 }
 
 //questiongame data
@@ -114,19 +169,10 @@ var Game=
 
 }
 
-//function call for renderQuestion
-//renderQuestion();
 
 
-//function when user onclicks (.buttonStyle) a choice
-//stop the time
-//evaluate if ans wrong or right
-//if wrong, decrement time
-//if right display correct
 
-//update questionIndex++
-//go to the next card
-//call renderQuestion
+
 
 
 
