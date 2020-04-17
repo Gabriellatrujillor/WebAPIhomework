@@ -60,13 +60,13 @@ function countDown() {
 
 }
 
-function choicesClicked(){
+function choicesClicked(e){
   stopTime();
   console.log("stop time")
   console.log(timeLeft);
-  console.log(this.textContent)
+  console.log(event.target.textContent)
 
-  if(this.value== Game.answer[questionIndex]){
+  if(event.target.textContent== Game.answer[questionIndex]){
     console.log("good job!")
   }
   else{
@@ -127,6 +127,11 @@ function renderQuestion(){
   }
 
 
+
+
+
+
+
   console.log(Game.choices[0][0]);
   console.log(Game.choices[0][1]);
   console.log(Game.choices[0][2]);
@@ -159,116 +164,13 @@ function renderQuestion(){
 
 var Game=
 {
-  question:["Hyper Text Markup Language Stand For?", "Which language is used for styling web pages?"],
+  question:["Hyper Text Markup Language Stand For?", "Which language is used for styling web pages?", "Which is not a JavaScript Framework?"],
   choices:[
              ["JavaScript", "XHTML","CSS", "HTML"],
              ["HTML", "JQuery", "CSS", "XML"],
+             ["Python Script", "JQuery","Django", "NodeJS"]
 
           ],
-  answer: ["HTML","CSS"]
+  answer: ["HTML","CSS","Django"]
 
 }
-
-
-
-
-
-
-
-
-
-
-// ***** TEST CODE ******
-// function countDown() {
-//     var timeLeft = 35; setInterval(function () {
-//     timeLeft--;
-//     timer.textContent = timeLeft + " seconds remaining!";
-//         if (timeLeft >= 0) {
-//             span = document.getElementById("timer");
-//             span.innerHTML = timeLeft;
-//         }
-//       if (timeLeft === 0) {
-//           alert("Time is out, proceed to end screen");
-//         clearTimeout(timerId);
-//         //GO TO END SCREEN
-//         quizScreen.classList.add("hide");
-//         endScreen.classList.remove("hide");
-//         console.log("time is out, go to end screen.");
-//       }
-    
-//     }, 1000) };
-
-//     document.getElementById(quizScreen).click(function(){
-//         countDown();
-//     });
-    
-
-// ****** TEST CODE *****
-// function startTimer(){
-//     var counter = 5;
-//     setInterval(function() {
-//       counter--;
-//       if (counter >= 0) {
-//         span = document.getElementById("count");
-//         span.innerHTML = counter;
-//       }
-//       if (counter === 0) {
-//           alert('sorry, out of time');
-//           clearInterval(counter);
-//       }
-//     }, 1000);
-//   }
-  
-//   $("#startClock").click(function(){
-//       startTimer();
-//   });
-
-
-
-
-
-// RUN QUIZ (try to not use a for loop as it will get very complicated with the nexting. instead, try to use the index method we discussed)¸
-var questions = [];
-var answerOptions =[]
-// END SCREEN
-document.getElementById("score").textContent = "asdfghjkjhgfdsdfghjk";
-
-
-
-// ****OBJECTIVE: CREATE QUESTION AND ANSWER ARRAY
-
-//// *****TEST CODE******
-
-// var quiz = newQuiz(questions);
-
-// var question = [
-//     new Question("Hyper Text Markup Language Stand For?", ["JavaScript", "XHTML","CSS", "HTML"], "HTML"),
-//     new Question("Which language is used for styling web pages?", ["HTML", "JQuery", "CSS", "XML"], "CSS"),
-//     new Question("Which is not a JavaScript Framework?", ["Python Script", "JQuery","Django", "NodeJS"], "Django"),
-// ];
-
-// function quiz(questions) {
-//     this.score = 0;
-//     this.questions = questions;
-//     this.questionIndex = 0;
-// }
-
-// var questionOne = document.getElementById("btn0");
-// {
-
-//     // questionZero.addEventListener("click", function () (
-//     //    console.log("question zero clicked"); 
-//     // ))
-// }
-// var questionTwo = document.getElementById("btn1");{
-
-// }
-// var questionOne = document.getElementById("btn2");{
-
-// }
-
-
-
-// var questions = [];
-// var answerOptions =[]
-// END SCREEN }
