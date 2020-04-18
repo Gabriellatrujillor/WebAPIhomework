@@ -16,6 +16,7 @@ startButton.addEventListener("click", function () {
 });
 
 
+
 // MORE VARIABLES DECLARED
 var timeLeft = 35;
 var timer = document.getElementById("timer");
@@ -60,6 +61,19 @@ function countDown() {
 
 }
 
+
+// // **** TEST CODE TRENTON ****
+// document.addEventListener("click", function (event) {
+//   if (!event.target.matches(#choices)) {
+//     console.log("user-choice", event.target.textContent);
+//     var userChoice = event.target.textContent;
+//     var correctAnswer = Game[questionIndex].answer;
+//     console.log("Correct answer:", correctAnswer)
+//   }
+// }
+
+// WHEN EVENT OF CHOICE SELECTED IT RUNS IF OR ELSE STATEMENT
+
 function choicesClicked(e){
   stopTime();
   console.log("stop time")
@@ -79,6 +93,8 @@ function choicesClicked(e){
   renderQuestion();
 }
 
+// TO STOP TIMER ---- need to add function quizEnd () need to add and remove attributes to have end screen element/final score
+
 //function to render the question
 function renderQuestion(){
   console.log("starting time")
@@ -90,23 +106,9 @@ function renderQuestion(){
   console.log(Game.question[0]);
   document.querySelector("#question-title").textContent=Game.question[questionIndex];
   
-  // var choice1 = document.createElement("button");
-  // //<button></button>
-  // choice1.textContent = Game.choices[0][0];
-  // //<button>JavaScript</button>
-  // document.querySelector("#choices").appendChild(choice1);
-  // //appends the first btn to #choices location
-  // var choice2 = document.createElement("button");
-  // choice2.textContent = Game.choices[0][1];
-  // document.querySelector("#choices").appendChild(choice2);
+  
 
-  // var choice3 = document.createElement("button");
-  // choice3.textContent = Game.choices[0][2];
-  // document.querySelector("#choices").appendChild(choice3);
-
-  // var choice4 = document.createElement("button");
-  // choice4.textContent = Game.choices[0][3];
-  // document.querySelector("#choices").appendChild(choice4);
+  // GAME CHOICES FOR LOOP + ON CLICK BUTTONS
 
   document.querySelector("#choices").textContent="";
 
@@ -121,17 +123,10 @@ function renderQuestion(){
   //<button user-choice="Javascript" class="buttonStyle">JavaScript</button>
   choice1.setAttribute("onclick", "choicesClicked()");
   document.querySelector("#choices").appendChild(choice1);
-
-  
+ 
 
   }
-
-
-
-
-
-
-
+  // CONSOLE LOG CONFIRMING
   console.log(Game.choices[0][0]);
   console.log(Game.choices[0][1]);
   console.log(Game.choices[0][2]);
@@ -152,16 +147,12 @@ function renderQuestion(){
 //update questionIndex++
 //go to the next card
 //call renderQuestion
-   
+
+// TA NOTES TO DO
+  // save to local storage, json.stringify, highscore set to window.local storage + get item method = "highscore"
 }
 
-//questiongame data
-// var question = [
-//     new Question("Hyper Text Markup Language Stand For?", ["JavaScript", "XHTML","CSS", "HTML"], "HTML"),
-//     new Question("Which language is used for styling web pages?", ["HTML", "JQuery", "CSS", "XML"], "CSS"),
-//     new Question("Which is not a JavaScript Framework?", ["Python Script", "JQuery","Django", "NodeJS"], "Django"),
-// ];
-
+// GAME VARIABLE WITH QUESTIONS, CHOICES AND ANSWERS
 var Game=
 {
   question:["Hyper Text Markup Language Stand For?", "Which language is used for styling web pages?", "Which is not a JavaScript Framework?"],

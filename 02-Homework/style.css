@@ -1,3 +1,66 @@
 .hide {
     display: none;
 }
+
+
+#start-screen{
+    text-align: center;
+}
+
+.header, h1{
+    font-family: 'Press Start 2P', cursive;
+}
+
+/* BUTTON FOR START QUIZ */
+
+#start-quiz {
+    display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+#start-quiz:hover {
+    background-color: #3e8e41;
+    transition-duration: 0.6s;}
+
+#start-quiz:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+
+/* BUTTON STYLES FOR CHOICES */
+.buttonStyle {
+    display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.buttonStyle:hover {
+    background-color: #3e8e41;
+    transition-duration: 0.6s;}
+
+.buttonStyle:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
