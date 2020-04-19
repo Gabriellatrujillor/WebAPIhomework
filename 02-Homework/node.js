@@ -1,10 +1,19 @@
+// FAILED OBJECTIVES I NEED HEEEEEELLLLPPPP:
+// QUESTIONS, CHOICES AND ANSWERS DISPLAYING ON WINDOW BUT NOT RUNNING THROUGH FOR LOOP PROPERLY
+    // GAME.CHOICES PROPERTY LENGTH IS UNDEFINED
+// NEED TO COLLECT ANSWER DATA AND HIGH SCORE TO LOCAL STORAGE AND DISPLAY RESULTS IN endScreen element
+  // UTILIZE GET ITEM METHOD = HIGH SCORE
+
+
 // VARIABLES DECLARED!
 var startButton = document.getElementById("start-quiz");
 var startScreen = document.getElementById("start-screen");
 var quizScreen = document.getElementById("quiz-screen");
 var endScreen = document.getElementById("end-screen");
 
-// var finalScore = ......
+// COLLECTING ANSWERS VAR, SELECTING DIV ID = ANSWER / 25 ***TESTING****
+// var answerSub = document.getElementById('answer')
+
 // START BUTTON EVENT LISTENER AND FUNCTION TO NEXT SCREEN
 startButton.addEventListener("click", function () {
   console.log("start button clicked");
@@ -15,25 +24,22 @@ startButton.addEventListener("click", function () {
   renderQuestion();
 });
 
-
-
-// MORE VARIABLES DECLARED
+// TIMER VARIABLES DECLARED
 var timeLeft = 35;
 var timer = document.getElementById("timer");
 var timerId;
-var questionIndex=0;
-// DISPLAY TIMER FUNCTION
 
+// *** I THINK THIS IS WHAT'S MAKING THE ARRAY NOT RUN PROPERLY???
+var questionIndex= 0;
 
-// ****OBJECTIVE: KEEP TIMER FROM RUNNING WITHOUT PRESSING START
-
-// ***** ORIGINAL TIMER FUNCTION********
+// TIMER FUNCTIONS
 function startTime(){
   timerId = setInterval(countDown, 1000);
 }
 
 function stopTime(){
   clearInterval(timerId);
+
 
 }
 
@@ -42,8 +48,9 @@ function resetTime(){
 
 }
 
+// NOT RUNNING INTO NEGATIVES BUT NOT CUTTING TO END SCREEN ONCE COMPLETE
 function reduceTime(){
-  timeLeft= timeLeft-15;
+  timeLeft= timeLeft-5;
 
 }
 
@@ -53,7 +60,7 @@ function countDown() {
     //GO TO END SCREEN
     quizScreen.classList.add("hide");
     endScreen.classList.remove("hide");
-    console.log("time is out, go to end screen.");
+    console.log("Done already? Go to the end screen!");
   } else {
     timer.textContent = timeLeft + " seconds remaining!";
     timeLeft--;
@@ -63,7 +70,6 @@ function countDown() {
 
 
 // WHEN EVENT OF CHOICE SELECTED IT RUNS IF OR ELSE STATEMENT
-
 function choicesClicked(e){
   stopTime();
   console.log("stop time")
@@ -71,35 +77,36 @@ function choicesClicked(e){
   console.log(event.target.textContent)
 
   if(event.target.textContent== Game.answer[questionIndex]){
-    console.log("good job!")
+    console.log("Ayyy you got it right!")
   }
   else{
     //decrement time
     reduceTime();
-    console.log("YOU ARE WRONG you lose 15s");
+    console.log("WRONG!! You lose 5 seconds");
   }
 
   questionIndex++;
   renderQuestion();
 }
 
-// TO STOP TIMER ---- need to add function quizEnd () need to add and remove attributes to have end screen element/final score
 
-//function to render the question
+function checkAnswer() {
+  Game.choices = document.getElementsByName("")
+}
+
+
+// RENDER QUESTIONS
 function renderQuestion(){
   console.log("starting time")
   startTime();
   document.querySelector("#quiz-screen").setAttribute("class","");
  // countDown();
-  //display the current q, choices, answers
-  //console.log(Game);
+ console.log(Game);
   console.log(Game.question[0]);
   document.querySelector("#question-title").textContent=Game.question[questionIndex];
   
-  
 
-  // GAME CHOICES FOR LOOP + ON CLICK BUTTONS
-
+  // GAME CHOICES FOR LOOP + CREATING ON CLICK BUTTONS
   document.querySelector("#choices").textContent="";
 
   for(var i=0;i<Game.choices[questionIndex].length;i++){
@@ -117,29 +124,12 @@ function renderQuestion(){
 
   }
   // CONSOLE LOG CONFIRMING
-  console.log(Game.choices[0][0]);
-  console.log(Game.choices[0][1]);
-  console.log(Game.choices[0][2]);
-  console.log(Game.choices[0][3]);
+  // console.log(Game.choices[0][0]);
+  // console.log(Game.choices[0][1]);
+  // console.log(Game.choices[0][2]);
+  // console.log(Game.choices[0][3]);
   document.querySelector("#answer").textContent=Game.answer[questionIndex];
   console.log(Game.answer[0]);
-
-  //function when user onclicks (.buttonStyle) a choice to call choicesClicked();
-
-
-
-
-//stop the time
-//evaluate if ans wrong or right
-//if wrong, decrement time
-//if right display correct
-
-//update questionIndex++
-//go to the next card
-//call renderQuestion
-
-// TA NOTES TO DO
-  // save to local storage, json.stringify, highscore set to window.local storage + get item method = "highscore"
 }
 
 // GAME VARIABLE WITH QUESTIONS, CHOICES AND ANSWERS
