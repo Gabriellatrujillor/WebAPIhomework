@@ -3,6 +3,25 @@
 }
 
 
+/* body {
+    background-image: url("https://unsplash.com/photos/G9i_plbfDgk");
+
+} */
+/* CONTAINER FOR ALL CONTENT */
+.container {
+    height: 350px;
+    width: auto;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 20px #251E3E;
+}
+
+.bg {
+    background-color: #451e3e;
+    /* background-image: url("https://unsplash.com/photos/G9i_plbfDgk"); */
+}
+
+/* START SCREEN */
 #start-screen{
     text-align: center;
 }
@@ -11,56 +30,75 @@
     font-family: 'Press Start 2P', cursive;
 }
 
+
+/* STYLING FOR ALL BUTTONS */
+
+#quiz-screen {
+    font-family: 'Orbitron', sans-serif;
+}
+
 /* BUTTON FOR START QUIZ */
 
 #start-quiz {
     display: inline-block;
-  padding: 15px 25px;
+  font-family: 'Orbitron', sans-serif;
   font-size: 24px;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
   outline: none;
   color: #fff;
-  background-color: #4CAF50;
+  background-color: #851E3E;
   border: none;
   border-radius: 15px;
-  box-shadow: 0 9px #999;
+  box-shadow: 0 9px #251E3E;
+  padding: 10px 70px 10px;
+    width:500px;
+    height:60px;
+    margin-bottom: 70px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #start-quiz:hover {
-    background-color: #3e8e41;
+    background-color: #AB5A7D;
     transition-duration: 0.6s;}
 
 #start-quiz:active {
-    background-color: #3e8e41;
-    box-shadow: 0 5px #666;
+    background-color: #AB5A7D;
+    box-shadow: 0 5px #251E3E;
     transform: translateY(4px);
   }
 
 
 /* BUTTON STYLES FOR CHOICES */
 .buttonStyle {
-    display: inline-block;
-  padding: 15px 25px;
-  font-size: 24px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  color: #fff;
-  background-color: #4CAF50;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
+    display: block;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #851E3E;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #251E3E;
+    padding: 5px 70px 10px;
+    width: 500px;
+    height:45px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .buttonStyle:hover {
-    background-color: #3e8e41;
+    background-color: #AB5A7D;
     transition-duration: 0.6s;}
 
 .buttonStyle:active {
-    background-color: #3e8e41;
-    box-shadow: 0 5px #666;
+    background-color: #AB5A7D;
+    box-shadow: 0 5px #251E3E;
     transform: translateY(4px);
   }
