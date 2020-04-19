@@ -11,7 +11,7 @@ startButton.addEventListener("click", function () {
   startScreen.classList.add("hide");
   quizScreen.classList.remove("hide");
   console.log("begin timer countdown: ");
-  //countDown();
+  countDown();
   renderQuestion();
 });
 
@@ -30,7 +30,6 @@ var questionIndex=0;
 // ***** ORIGINAL TIMER FUNCTION********
 function startTime(){
   timerId = setInterval(countDown, 1000);
-
 }
 
 function stopTime(){
@@ -47,6 +46,7 @@ function reduceTime(){
   timeLeft= timeLeft-15;
 
 }
+
 function countDown() {
   if (timeLeft === 0) {
     clearTimeout(timerId);
@@ -61,16 +61,6 @@ function countDown() {
 
 }
 
-
-// // **** TEST CODE TRENTON ****
-// document.addEventListener("click", function (event) {
-//   if (!event.target.matches(#choices)) {
-//     console.log("user-choice", event.target.textContent);
-//     var userChoice = event.target.textContent;
-//     var correctAnswer = Game[questionIndex].answer;
-//     console.log("Correct answer:", correctAnswer)
-//   }
-// }
 
 // WHEN EVENT OF CHOICE SELECTED IT RUNS IF OR ELSE STATEMENT
 
