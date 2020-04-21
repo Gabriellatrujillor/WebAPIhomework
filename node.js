@@ -1,8 +1,7 @@
 // FAILED OBJECTIVES I NEED HEEEEEELLLLPPPP:
-// QUESTIONS, CHOICES AND ANSWERS DISPLAYING ON WINDOW BUT NOT RUNNING THROUGH FOR LOOP PROPERLY
-    // GAME.CHOICES PROPERTY LENGTH IS UNDEFINED
-// NEED TO COLLECT ANSWER DATA AND HIGH SCORE TO LOCAL STORAGE AND DISPLAY RESULTS IN endScreen element
-  // UTILIZE GET ITEM METHOD = HIGH SCORE
+  //localstorage clear storage
+  //reset the array to empty then array to local storage
+  // verify that start over button works maybe? (if I feel like it)
 
 
 // VARIABLES DECLARED!
@@ -16,18 +15,35 @@ var endScreen = document.getElementById("end-screen");
 
 // START BUTTON EVENT LISTENER AND FUNCTION TO NEXT SCREEN
 startButton.addEventListener("click", function () {
+  timerLeft=35;
+  timer = document.getElementById("timer");
+  timerId;
+ score=0;
+scorearray=JSON.parse(localStorage.getItem("scores"));
+
   console.log("start button clicked");
   startScreen.classList.add("hide");
   quizScreen.classList.remove("hide");
   console.log("begin timer countdown: ");
   countDown();
   renderQuestion();
+  document.querySelector("#end-screen").setAttribute("class","hide");
 });
 
 // TIMER VARIABLES DECLARED
 var timeLeft = 35;
 var timer = document.getElementById("timer");
 var timerId;
+var score=0;
+var scorearray=JSON.parse(localStorage.getItem("scores"));
+
+// Checks to see if we have any todos in localStorage
+// If we do, set the local insideList variable to our todos
+// Otherwise set the local insideList variable to an empty array
+if (!Array.isArray(scorearray)) {
+  scorearray = [];
+}
+
 
 // *** I THINK THIS IS WHAT'S MAKING THE ARRAY NOT RUN PROPERLY???
 var questionIndex= 0;
@@ -58,13 +74,97 @@ function countDown() {
   if (timeLeft === 0) {
     clearTimeout(timerId);
     //GO TO END SCREEN
-    quizScreen.classList.add("hide");
-    endScreen.classList.remove("hide");
-    console.log("Done already? Go to the end screen!");
+    endGame();
+   
   } else {
     timer.textContent = timeLeft + " seconds remaining!";
     timeLeft--;
   }
+
+}
+
+
+
+function endGame(){
+  quizScreen.classList.add("hide");
+  endScreen.classList.remove("hide");
+  console.log("Done already? Go to the end screen!");
+   //tell user score
+    //ask user for name
+    //add it to the array
+   //display out all users
+  //  <form>
+  //   <input type="text">
+  //   <input type="submit" value="save">
+  // </form>
+
+
+
+ var input= document.createElement("input");
+ input.setAttribute("class", "userform");
+ var savebtn= document.createElement("button");
+ savebtn.setAttribute("class", "save");
+ savebtn.setAttribute("onClick", "saveUser()");
+ savebtn.innerHTML="Save";
+
+
+ document.querySelector("#end-screen").appendChild(input);
+ document.querySelector("#end-screen").appendChild(savebtn);
+
+ 
+
+
+
+
+
+
+
+
+}
+
+function saveUser(e){
+  event.preventDefault();
+  var username =document.querySelector(".userform").value;
+  var userscore=score;
+  var userdata={
+    name:username,
+    score:userscore
+  }
+  console.log(userdata);
+  scorearray.push(userdata);
+  //set to local storage
+  localStorage.setItem("scores", JSON.stringify(scorearray));
+  displayScore();
+}
+
+
+
+function displayScore(){
+  document.querySelector("#end-screen").setAttribute("class","show");
+  scorearray=JSON.parse(localStorage.getItem("scores"))
+  console.log(scorearray)
+  var highscore=0;
+  var highscoreindex=0;
+  for(var i=0;i<scorearray.length;i++){
+    if(scorearray[i].score>highscore){
+      highscoreindex=i;
+      highscore=scorearray[highscoreindex].score;
+
+    }
+    var div=document.createElement("div");
+    div.setAttribute("class", "userboard");
+    div.textContent= scorearray[i].name+ " "+scorearray[i].score;
+    document.querySelector("#end-screen").appendChild(div);
+  }
+
+  // If I can't get to work just get rid of start over button... and make a function called clear storage using the localestorage
+  var p=document.createElement("p");
+  p.textContent= "HIGHSCORE: "+scorearray[highscoreindex].score +" || " +scorearray[highscoreindex].name;
+  document.querySelector("#end-screen").appendChild(p);
+  // var startoverbtn= document.createElement("button");
+  // startoverbtn.setAttribute("id", "start-quiz");
+  // startoverbtn.textContent="Start Over";
+  // document.querySelector("#end-screen").appendChild(startoverbtn);
 
 }
 
@@ -78,6 +178,8 @@ function choicesClicked(e){
 
   if(event.target.textContent== Game.answer[questionIndex]){
     console.log("Ayyy you got it right!")
+    score++;
+    //display score on html (user document.queryselector)
   }
   else{
     //decrement time
@@ -97,12 +199,17 @@ function checkAnswer() {
 
 // RENDER QUESTIONS
 function renderQuestion(){
-  console.log("starting time")
+
+  //so if we are at the end of the game, render out endgame function
+  //if not continue below
+  //we still have questions and do all the stuff below
+  if(questionIndex < Game.question.length)
+  {console.log("starting time")
   startTime();
   document.querySelector("#quiz-screen").setAttribute("class","");
  // countDown();
  console.log(Game);
-  console.log(Game.question[0]);
+  console.log(Game.question[questionIndex]);
   document.querySelector("#question-title").textContent=Game.question[questionIndex];
   
 
@@ -128,8 +235,17 @@ function renderQuestion(){
   // console.log(Game.choices[0][1]);
   // console.log(Game.choices[0][2]);
   // console.log(Game.choices[0][3]);
-  document.querySelector("#answer").textContent=Game.answer[questionIndex];
-  console.log(Game.answer[0]);
+  console.log(Game.answer[questionIndex]);
+
+
+  }
+  else{
+    alert("GAME IS OVER");
+    //go to endgame screen
+    endGame();
+   
+  }
+  
 }
 
 // GAME VARIABLE WITH QUESTIONS, CHOICES AND ANSWERS
