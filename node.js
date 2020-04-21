@@ -1,7 +1,8 @@
 // FAILED OBJECTIVES I NEED HEEEEEELLLLPPPP:
-  //localstorage clear storage
-  //reset the array to empty then array to local storage
-  // verify that start over button works maybe? (if I feel like it)
+    // GAME.CHOICES PROPERTY LENGTH IS UNDEFINED
+// NEED TO COLLECT ANSWER DATA AND HIGH SCORE TO LOCAL STORAGE AND DISPLAY RESULTS IN endScreen element
+  // UTILIZE GET ITEM METHOD = HIGH SCORE
+  //localstorage
 
 
 // VARIABLES DECLARED!
@@ -157,14 +158,13 @@ function displayScore(){
     document.querySelector("#end-screen").appendChild(div);
   }
 
-  // If I can't get to work just get rid of start over button... and make a function called clear storage using the localestorage
   var p=document.createElement("p");
   p.textContent= "HIGHSCORE: "+scorearray[highscoreindex].score +" || " +scorearray[highscoreindex].name;
   document.querySelector("#end-screen").appendChild(p);
-  // var startoverbtn= document.createElement("button");
-  // startoverbtn.setAttribute("id", "start-quiz");
-  // startoverbtn.textContent="Start Over";
-  // document.querySelector("#end-screen").appendChild(startoverbtn);
+  var startoverbtn= document.createElement("button");
+  startoverbtn.setAttribute("id", "start-quiz");
+  startoverbtn.textContent="Start Over";
+  document.querySelector("#end-screen").appendChild(startoverbtn);
 
 }
 
