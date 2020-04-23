@@ -1,8 +1,3 @@
-// FAILED OBJECTIVES I NEED HEEEEEELLLLPPPP:
-    // GAME.CHOICES PROPERTY LENGTH IS UNDEFINED
-// NEED TO COLLECT ANSWER DATA AND HIGH SCORE TO LOCAL STORAGE AND DISPLAY RESULTS IN endScreen element
-  // UTILIZE GET ITEM METHOD = HIGH SCORE
-  //localstorage
 
 
 // VARIABLES DECLARED!
@@ -11,16 +6,13 @@ var startScreen = document.getElementById("start-screen");
 var quizScreen = document.getElementById("quiz-screen");
 var endScreen = document.getElementById("end-screen");
 
-// COLLECTING ANSWERS VAR, SELECTING DIV ID = ANSWER / 25 ***TESTING****
-// var answerSub = document.getElementById('answer')
-
 // START BUTTON EVENT LISTENER AND FUNCTION TO NEXT SCREEN
 startButton.addEventListener("click", function () {
   timerLeft=35;
   timer = document.getElementById("timer");
   timerId;
  score=0;
-scorearray=JSON.parse(localStorage.getItem("scores"));
+ 
 
   console.log("start button clicked");
   startScreen.classList.add("hide");
@@ -38,15 +30,13 @@ var timerId;
 var score=0;
 var scorearray=JSON.parse(localStorage.getItem("scores"));
 
-// Checks to see if we have any todos in localStorage
-// If we do, set the local insideList variable to our todos
+// Checks to see if we have any arrays in localStorage
+// If we do, set the local insideList variable to our array
 // Otherwise set the local insideList variable to an empty array
 if (!Array.isArray(scorearray)) {
   scorearray = [];
 }
 
-
-// *** I THINK THIS IS WHAT'S MAKING THE ARRAY NOT RUN PROPERLY???
 var questionIndex= 0;
 
 // TIMER FUNCTIONS
@@ -65,7 +55,6 @@ function resetTime(){
 
 }
 
-// NOT RUNNING INTO NEGATIVES BUT NOT CUTTING TO END SCREEN ONCE COMPLETE
 function reduceTime(){
   timeLeft= timeLeft-5;
 
@@ -74,7 +63,6 @@ function reduceTime(){
 function countDown() {
   if (timeLeft === 0) {
     clearTimeout(timerId);
-    //GO TO END SCREEN
     endGame();
    
   } else {
@@ -86,40 +74,13 @@ function countDown() {
 
 
 
+
 function endGame(){
+ 
   quizScreen.classList.add("hide");
   endScreen.classList.remove("hide");
   console.log("Done already? Go to the end screen!");
-   //tell user score
-    //ask user for name
-    //add it to the array
-   //display out all users
-  //  <form>
-  //   <input type="text">
-  //   <input type="submit" value="save">
-  // </form>
-
-
-
- var input= document.createElement("input");
- input.setAttribute("class", "userform");
- var savebtn= document.createElement("button");
- savebtn.setAttribute("class", "save");
- savebtn.setAttribute("onClick", "saveUser()");
- savebtn.innerHTML="Save";
-
-
- document.querySelector("#end-screen").appendChild(input);
- document.querySelector("#end-screen").appendChild(savebtn);
-
- 
-
-
-
-
-
-
-
+  document.querySelector(".userform").value= "";
 
 }
 
@@ -133,7 +94,6 @@ function saveUser(e){
   }
   console.log(userdata);
   scorearray.push(userdata);
-  //set to local storage
   localStorage.setItem("scores", JSON.stringify(scorearray));
   displayScore();
 }
@@ -142,7 +102,14 @@ function saveUser(e){
 
 function displayScore(){
   document.querySelector("#end-screen").setAttribute("class","show");
-  scorearray=JSON.parse(localStorage.getItem("scores"))
+  scorearray=JSON.parse(localStorage.getItem("scores"));
+  if (!Array.isArray(scorearray)) {
+    //if we have no scores
+    scorearray = [];
+    document.querySelector("#end-screen").textContent="No Scores. GAME OVER";
+
+  }else{
+    //if there are scores, show the user
   console.log(scorearray)
   var highscore=0;
   var highscoreindex=0;
@@ -159,12 +126,48 @@ function displayScore(){
   }
 
   var p=document.createElement("p");
-  p.textContent= "HIGHSCORE: "+scorearray[highscoreindex].score +" || " +scorearray[highscoreindex].name;
+  p.textContent= "Final score: "+scorearray[highscoreindex].score +" || " +scorearray[highscoreindex].name;
   document.querySelector("#end-screen").appendChild(p);
-  var startoverbtn= document.createElement("button");
-  startoverbtn.setAttribute("id", "start-quiz");
-  startoverbtn.textContent="Start Over";
-  document.querySelector("#end-screen").appendChild(startoverbtn);
+
+  
+
+  }
+ 
+
+}
+
+
+document.querySelector("#start-over").addEventListener( "click", function(event){
+  event.preventDefault();
+    //take back to first screen
+  //index set to zero
+  questionIndex= 0;
+  console.log("INDEX: "+questionIndex);
+  resetTime();
+  console.log("TIME: "+timeLeft);
+  score = 0;
+  console.log("SCORE: "+score);
+
+  startScreen.classList.add("hide");
+  quizScreen.classList.remove("hide");
+  console.log("begin timer countdown: ");
+  countDown();
+  renderQuestion();
+  document.querySelector("#end-screen").setAttribute("class","hide");
+
+  //timer set back
+  //answer set back
+  })
+
+document.querySelector("#clear").addEventListener( "click", function(event){
+event.preventDefault();
+clearScores();
+})
+
+function clearScores() {
+  window.localStorage.removeItem("scores");
+  displayScore();
+
 
 }
 
@@ -230,25 +233,17 @@ function renderQuestion(){
  
 
   }
-  // CONSOLE LOG CONFIRMING
-  // console.log(Game.choices[0][0]);
-  // console.log(Game.choices[0][1]);
-  // console.log(Game.choices[0][2]);
-  // console.log(Game.choices[0][3]);
   console.log(Game.answer[questionIndex]);
 
 
   }
   else{
-    alert("GAME IS OVER");
-    //go to endgame screen
-    endGame();
+        endGame();
    
   }
   
 }
 
-// GAME VARIABLE WITH QUESTIONS, CHOICES AND ANSWERS
 var Game=
 {
   question:["Hyper Text Markup Language Stand For?", "Which language is used for styling web pages?", "Which is not a JavaScript Framework?"],
