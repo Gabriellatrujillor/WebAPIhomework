@@ -246,13 +246,13 @@ function renderQuestion(){
 
 var Game=
 {
-  question:["Hyper Text Markup Language Stand For?", "Which language is used for styling web pages?", "Which is not a JavaScript Framework?"],
+  question:["A wise old man gives you a weapon to protect you on your journey. What type of weapon is best for traversing these dangerous lands?", "You come across a young maiden asking you to deliver a letter to her loved one ALL the way on the other side of the map. What do you do?", "There are rumors of a dragon terrorizing the local townspeople. How do you slay it?"],
   choices:[
-             ["JavaScript", "XHTML","CSS", "HTML"],
-             ["HTML", "JQuery", "CSS", "XML"],
-             ["Python Script", "JQuery","Django", "NodeJS"]
+             ["HA! A broadsword of course!", "A shank- I mean dagger.","A bow made from the eldertree in the North", "My fists are the only weapon I need"],
+             ["Accept her quest! For I am a valiant protector of these lands", "Ain't nobody got time for that!", "I will deliver this message for you, but ther is a price....", "Run away"],
+             ["When it lands I will hack at it with all of my might!", "Find it's den and when it goes to sleep stab it with your shan- I mean dagger!!","Shoot it down with a deadly and rare dragonglass arrow you found in a treasurebox", "Ignore them and go to a different town because it's none of your business"]
 
           ],
-  answer: ["HTML","CSS","Django"]
+  answer: ["A bow!! Duh","Deliver message and take all of her gold.","A BOW!! If you didn't choose this you goofed."]
 
 }
