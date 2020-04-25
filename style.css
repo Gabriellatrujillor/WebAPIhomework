@@ -9,15 +9,16 @@
 } */
 /* CONTAINER FOR ALL CONTENT */
 .container {
-    height: 350px;
+    height: 500px;
     width: auto;
     border: none;
-    border-radius: 15px;
     box-shadow: 0 20px #251E3E;
+    outline: 20px inset #AB5A7D;
+
 }
 
 .bg {
-    background-color: #451e3e;
+    background-color: rgb(56, 2, 34);
     /* background-image: url("https://unsplash.com/photos/G9i_plbfDgk"); */
 }
 
@@ -27,7 +28,140 @@
 }
 
 .header, h1{
+    outline: 20px inset #AB5A7D;
+    font-size: 45px;
+    color: rgb(160, 73, 102);
     font-family: 'Press Start 2P', cursive;
+}
+
+.intro, h2{
+    color: rgb(2, 126, 120);
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 150px;
+    padding-top: 60px;
+    text-align: center;
+}
+
+#name {
+    font-size: 80px;
+    font-family: 'IM Fell English', serif;
+    padding: 10px 70px 10px;
+    widows: 300px;
+    height:60px;
+    margin-top: 40px;
+    margin-bottom: 70px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.userform {
+    float: center;
+    border: 5px inset;
+    border-color: #AB5A7D;
+    border-radius: 10px;
+}
+
+#clear{
+    display: block;
+    font-family: 'IM Fell English', serif;
+    font-size: 24px;
+    float: right;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: rgb(255, 208, 249);
+    background-color: rgb(155, 57, 90);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 9px #251E3E;
+    padding: 10px 20px 10px;
+    width:100px;
+    height:80px;
+    margin-bottom: 20px;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: 60px;
+}
+
+#start-over{
+    display: block;
+    font-family: 'IM Fell English', serif;
+    font-size: 24px;
+    float: right;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: rgb(255, 208, 249);
+    background-color: rgb(155, 57, 90);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 9px #251E3E;
+    padding: 10px 20px 10px;
+    width:100px;
+    height:80px;
+    margin-bottom: 20px;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.save {
+    display: block;
+    font-family: 'IM Fell English', serif;
+    font-size: 24px;
+    float: right;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: rgb(255, 208, 249);
+    background-color: rgb(155, 57, 90);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 9px #251E3E;
+    padding: 10px 20px 10px;
+    width:100px;
+    height:80px;
+    margin-bottom: 20px;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+#end-screen{
+    color: rgb(2, 126, 120) !important;
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 130px !important;
+    /* padding-top: 130px; */
+    text-align: center;
+}
+
+.userboard{
+    /* display: block; */
+   text-align: center;
+    color: rgb(2, 126, 120);
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 20px;
+    border: 2px inset #251E3E;
+    border-width: 5px;
+    margin-top: 10px;
+    padding: 10px;
+    /* margin-bottom: 300px;
+    width:50px;
+    height: 50px; */
+
+  
+}
+
+.userboard, p {
+    font-size: 30px;
+    float: center;
+    /* padding: 10px 30px 20px; */
 }
 
 #end-screen{
@@ -37,7 +171,7 @@
 
 #end-screen, div{
     font-size: 50px;
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'IM Fell English', serif;
     color: black;
 }
 
@@ -45,50 +179,53 @@
 
 #quiz-screen {
     text-align: center;
+
 }
 
 #question-title {
-    font-size: 20px;
-    font-family: 'Press Start 2P', cursive;
+    font-size: 30px;
+    font-family: 'IM Fell English', serif;
     padding: 10px 70px 10px;
     widows: 300px;
-    height:60px;
-    margin-bottom: -10px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#timer {   
-    text-align: right;
-    font-size: 15px; 
-    font-family: 'Orbitron', sans-serif;
-}
-
-/* BUTTON FOR START QUIZ */
-
-#start-quiz {
-    display: inline-block;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 24px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  color: #fff;
-  background-color: #851E3E;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #251E3E;
-  padding: 10px 70px 10px;
-    width:500px;
     height:60px;
     margin-bottom: 70px;
     margin-left: auto;
     margin-right: auto;
 }
 
+#timer {   
+    text-align: right;
+    font-size: 13px; 
+    font-family: 'Orbitron', sans-serif;
+    color: rgb(255, 208, 249);
+}
+
+/* BUTTON FOR START QUIZ */
+
+#start-quiz {
+    display: inline-block;
+    font-family: 'IM Fell English', serif;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: rgb(255, 208, 249);
+  background-color: rgb(155, 57, 90);
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #251E3E;
+  padding: 10px 70px 10px;
+    width:500px;
+    height:80px;
+    margin-bottom: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+}
+
 #start-quiz:hover {
-    background-color: #AB5A7D;
+    background-color: rgb(19, 218, 208);
     transition-duration: 0.6s;}
 
 #start-quiz:active {
@@ -101,27 +238,28 @@
 /* BUTTON STYLES FOR CHOICES */
 .buttonStyle {
     display: block;
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'IM Fell English', serif;
     font-size: 24px;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
     outline: none;
-    color: #fff;
-    background-color: #851E3E;
+    color: rgb(255, 208, 249);
+    background-color: rgb(155, 57, 90);
     border: none;
-    border-radius: 15px;
+    border-radius: 50px;
     box-shadow: 0 9px #251E3E;
-    padding: 5px 70px 10px;
-    width: 500px;
-    height:40px;
+    padding: 10px 20px 10px;
+    width: 800px;
+    height:60px;
     margin-bottom: 20px;
+    margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .buttonStyle:hover {
-    background-color: #AB5A7D;
+    background-color: rgb(19, 218, 208);
     transition-duration: 0.6s;}
 
 .buttonStyle:active {

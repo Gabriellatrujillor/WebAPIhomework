@@ -11,13 +11,12 @@ startButton.addEventListener("click", function () {
   timerLeft=35;
   timer = document.getElementById("timer");
   timerId;
- score=0;
+  score=0;
  
-
-  console.log("start button clicked");
+  // console.log("start button clicked");
   startScreen.classList.add("hide");
   quizScreen.classList.remove("hide");
-  console.log("begin timer countdown: ");
+  // console.log("begin timer countdown: ");
   countDown();
   renderQuestion();
   document.querySelector("#end-screen").setAttribute("class","hide");
@@ -79,7 +78,7 @@ function endGame(){
  
   quizScreen.classList.add("hide");
   endScreen.classList.remove("hide");
-  console.log("Done already? Go to the end screen!");
+  // console.log("Your quest is complete");
   document.querySelector(".userform").value= "";
 
 }
@@ -106,7 +105,7 @@ function displayScore(){
   if (!Array.isArray(scorearray)) {
     //if we have no scores
     scorearray = [];
-    document.querySelector("#end-screen").textContent="No Scores. GAME OVER";
+    document.querySelector("#end-screen").textContent="Your Quest is complete";
 
   }else{
     //if there are scores, show the user
@@ -121,12 +120,12 @@ function displayScore(){
     }
     var div=document.createElement("div");
     div.setAttribute("class", "userboard");
-    div.textContent= scorearray[i].name+ " "+scorearray[i].score;
+    div.textContent= scorearray[i].name+ " scored "+scorearray[i].score;
     document.querySelector("#end-screen").appendChild(div);
   }
 
   var p=document.createElement("p");
-  p.textContent= "Final score: "+scorearray[highscoreindex].score +" || " +scorearray[highscoreindex].name;
+  p.textContent= "Hero Ranking: "+scorearray[highscoreindex].name +" at level " +scorearray[highscoreindex].score;
   document.querySelector("#end-screen").appendChild(p);
 
   
@@ -180,14 +179,14 @@ function choicesClicked(e){
   console.log(event.target.textContent)
 
   if(event.target.textContent== Game.answer[questionIndex]){
-    console.log("Ayyy you got it right!")
+    console.log("Correct. Level up!")
     score++;
     //display score on html (user document.queryselector)
   }
   else{
     //decrement time
     reduceTime();
-    console.log("WRONG!! You lose 5 seconds");
+    console.log("Wrong. You've lost 5 seconds and you should be ashamed of yourself");
   }
 
   questionIndex++;
@@ -246,13 +245,13 @@ function renderQuestion(){
 
 var Game=
 {
-  question:["A wise old man gives you a weapon to protect you on your journey. What type of weapon is best for traversing these dangerous lands?", "You come across a young maiden asking you to deliver a letter to her loved one ALL the way on the other side of the map. What do you do?", "There are rumors of a dragon terrorizing the local townspeople. How do you slay it?"],
+  question:["A wise old man gives you a weapon to protect yourself on your journey. Which weapon is best for traversing these dangerous lands?", "You come across a young maiden asking you to deliver a letter to her fiance on the other side of the map. What do you do?", "There are rumors of a dragon terrorizing the local townspeople. How do you handle the situation?"],
   choices:[
              ["HA! A broadsword of course!", "A shank- I mean dagger.","A bow made from the eldertree in the North", "My fists are the only weapon I need"],
-             ["Accept her quest! For I am a valiant protector of these lands", "Ain't nobody got time for that!", "I will deliver this message for you, but ther is a price....", "Run away"],
-             ["When it lands I will hack at it with all of my might!", "Find it's den and when it goes to sleep stab it with your shan- I mean dagger!!","Shoot it down with a deadly and rare dragonglass arrow you found in a treasurebox", "Ignore them and go to a different town because it's none of your business"]
+             ["Accept her quest! For I am a valiant protector of these lands", "Ain't nobody got time for that!", "I will deliver this message for you, but it'll cost you...one million gold pieces", "Run away!! Coronavirus!"],
+             ["When it lands I will wildly hack at it until it flies away again.", "Find its den, and when it goes to sleep stab it with your shan- I mean dagger!!","Shoot it down with a rare dragonglass arrow you found on the floor", "Ignore the villagers' cries for help because it's none of your business"]
 
           ],
-  answer: ["A bow!! Duh","Deliver message and take all of her gold.","A BOW!! If you didn't choose this you goofed."]
+  answer: ["A bow made from the eldertree in the North","Accept her quest! For I am a valiant protector of these lands", "Shoot it down with a rare dragonglass arrow you found on the floor"]
 
 }
