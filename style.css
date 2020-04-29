@@ -160,10 +160,15 @@
 
 #resultStyle{
     /* user p tag styling */
-    color:black;
+    color: rgb(2, 126, 120) !important;
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 60px !important;
+    /* padding-top: 130px; */
+    text-align: center;
 }
 
-.userboard, p {
+.p {
     font-size: 30px;
     float: center;
     

@@ -8,7 +8,7 @@ var endScreen = document.getElementById("end-screen");
 
 // START BUTTON EVENT LISTENER AND FUNCTION TO NEXT SCREEN
 startButton.addEventListener("click", function () {
-  timerLeft=35;
+  timerLeft=60;
   timer = document.getElementById("timer");
   timerId;
   score=0;
@@ -23,7 +23,7 @@ startButton.addEventListener("click", function () {
 });
 
 // TIMER VARIABLES DECLARED
-var timeLeft = 35;
+var timeLeft = 60;
 var timer = document.getElementById("timer");
 var timerId;
 var score=0;
@@ -50,7 +50,7 @@ function stopTime(){
 }
 
 function resetTime(){
-  timeLeft=35;
+  timeLeft=60;
 
 }
 
@@ -126,7 +126,7 @@ function displayScore(){
 
   var p=document.createElement("p");
   p.setAttribute("id","resultStyle");
-  p.textContent= "Hero Ranking: "+scorearray[highscoreindex].name +" at level " +scorearray[highscoreindex].score;
+  p.textContent= "Champion Ranking: "+scorearray[highscoreindex].name +" at level " +scorearray[highscoreindex].score;
   document.querySelector("div").appendChild(p);
   
 
