@@ -125,9 +125,9 @@ function displayScore(){
   }
 
   var p=document.createElement("p");
+  p.setAttribute("id","resultStyle");
   p.textContent= "Hero Ranking: "+scorearray[highscoreindex].name +" at level " +scorearray[highscoreindex].score;
-  document.querySelector("#end-screen").appendChild(p);
-
+  document.querySelector("div").appendChild(p);
   
 
   }
@@ -248,7 +248,7 @@ var Game=
   question:["A wise old man gives you a weapon to protect yourself on your journey. Which weapon is best for traversing these dangerous lands?", "You come across a young maiden asking you to deliver a letter to her fiance on the other side of the map. What do you do?", "There are rumors of a dragon terrorizing the local townspeople. How do you handle the situation?"],
   choices:[
              ["HA! A broadsword of course!", "A shank- I mean dagger.","A bow made from the eldertree in the North", "My fists are the only weapon I need"],
-             ["Accept her quest! For I am a valiant protector of these lands", "Ain't nobody got time for that!", "I will deliver this message for you, but it'll cost you...one million gold pieces", "Run away!! Coronavirus!"],
+             ["Accept her quest! For I am a valiant protector of these lands", "Ain't nobody got time for that!", "I will deliver this message for you, but it'll cost you...one million gold pieces", "Run away!!"],
              ["When it lands I will wildly hack at it until it flies away again.", "Find its den, and when it goes to sleep stab it with your shan- I mean dagger!!","Shoot it down with a rare dragonglass arrow you found on the floor", "Ignore the villagers' cries for help because it's none of your business"]
 
           ],

@@ -9,7 +9,7 @@
 } */
 /* CONTAINER FOR ALL CONTENT */
 .container {
-    height: 500px;
+    /* height: 500px; */
     width: auto;
     border: none;
     box-shadow: 0 20px #251E3E;
@@ -158,9 +158,15 @@
   
 }
 
+#resultStyle{
+    /* user p tag styling */
+    color:black;
+}
+
 .userboard, p {
     font-size: 30px;
     float: center;
+    
     /* padding: 10px 30px 20px; */
 }
 
