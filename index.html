@@ -6,23 +6,25 @@
     <title>Quiz Homework</title>
     <link rel = "stylesheet" href = "style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@1&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
     
 
 
     
 </head>
 <body>
+  <div class="navbar" id="topNav"></div>
     <div class="container p-3 my-3 bg text-white">
         <!-- STARTING SCREEN -->
         <div id="start-screen">
           <h1 class="header">Dude...do you even code?</h1>
           
           <h2 class="intro">A Coding Quest</h2>
-          <button id="start-quiz">Your journey starts here</button>
+          <button id="start-quiz">Begin Your Journey</button>
         </div>
         <!-- QUIZ QUESTIONS SCREEN -->
         <div class="hide" id="quiz-screen">
@@ -33,16 +35,33 @@
         </div>
         <!-- FINAL SCREEN -->
         <div class="hide" id="end-screen">
-          <h1>Trophies</h1>
+          <h1 id="trophy">Hall of Champions</h1>
           <div><h2 id="name">What is your name, adventurer?</h2><span id="score"></span>
           <button id="clear">Exit Game</button>
           <button id="start-over">Once more!</button>
           <input class="userform">
           <button class="save" onclick="saveUser()">Save</button>
+          <div id="usersResult"></div>
+          <div id="highScore"></div>
         </div>
         </div>
         
       </div>
-      <script src="./node.js"></script>
+
+
+      <footer class="footer mt-auto py-3">
+      <div id="footerHolder">
+        <div class="icon-bar">
+          <a href="https://github.com/Gabriellatrujillor" class="github" alt="Github Link"><i class="fa fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/gabriella-trujillo-robnett/" class="linkedin" alt="LinkedIn Link"><i class="fa fa-linkedin"></i></a>
+
+        </div>
+        <a class="btn-floating btn-lg btn-fb" type="button" role="button"><i class="fab fa-facebook-f"></i></a>
+
+          
+
+      </div>
+    </footer>
+    <script src="./node.js"></script>
   </body>
 </html>

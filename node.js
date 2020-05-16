@@ -112,6 +112,7 @@ function displayScore(){
   console.log(scorearray)
   var highscore=0;
   var highscoreindex=0;
+  document.querySelector("#usersResult").innerHTML="";
   for(var i=0;i<scorearray.length;i++){
     if(scorearray[i].score>highscore){
       highscoreindex=i;
@@ -121,13 +122,15 @@ function displayScore(){
     var div=document.createElement("div");
     div.setAttribute("class", "userboard");
     div.textContent= scorearray[i].name+ " scored "+scorearray[i].score;
-    document.querySelector("#end-screen").appendChild(div);
+    document.querySelector("#usersResult").appendChild(div);
   }
-
+  //empty highscore
+  document.querySelector("#highScore").innerHTML="";
   var p=document.createElement("p");
   p.setAttribute("id","resultStyle");
   p.textContent= "Champion Ranking: "+scorearray[highscoreindex].name +" at level " +scorearray[highscoreindex].score;
-  document.querySelector("div").appendChild(p);
+  //document.querySelector("div").appendChild(p);
+  document.querySelector("#highScore").appendChild(p);
   
 
   }
@@ -181,16 +184,18 @@ function choicesClicked(e){
   if(event.target.textContent== Game.answer[questionIndex]){
     console.log("Correct. Level up!")
     score++;
-    //display score on html (user document.queryselector)
+     document.querySelector("#answer").textContent="Correct! Level up";
   }
   else{
     //decrement time
     reduceTime();
     console.log("Wrong. You've lost 5 seconds and you should be ashamed of yourself");
+    document.querySelector("#answer").textContent="You've chosen poorly. -5 HP";
   }
 
   questionIndex++;
-  renderQuestion();
+  setTimeout(renderQuestion, 1500)
+  
 }
 
 
@@ -201,6 +206,7 @@ function checkAnswer() {
 
 // RENDER QUESTIONS
 function renderQuestion(){
+  document.querySelector("#answer").innerHTML="";
 
   //so if we are at the end of the game, render out endgame function
   //if not continue below
